@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Chat Application</title>
+    </head>
+    <body>
+        <h1>Chat</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}       
+            {{ form.chatroom.label }}: {{ form.chatroom() }} {% for error in form.chatroom.errors %}{{ error }}{% endfor %}<br>
+            {{ form.submit() }}
+        </form>        
+    </body>
+</html>

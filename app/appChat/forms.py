@@ -4,12 +4,14 @@ from wtforms.validators import Required, EqualTo
 
 
 class LoginForm(Form):   
-    name = StringField('Name', validators=[Required()])
-    chatroom = StringField('Room', validators=[Required()])
+    name = StringField('Name', validators=[Required()])    
     password= PasswordField('PassWord', validators=[Required()])
-    submit = SubmitField('Enter Chatroom')
+    submit = SubmitField('Login in')
 class RegisterForm(Form):
     name = StringField('Name', validators=[Required()])
     password = PasswordField('PassWord', validators=[Required(), EqualTo('confirm', message='Passwords must match')])
     confirm = PasswordField('Confirm PassWord', validators=[Required()])
-    submit = SubmitField('Enter Chatroom')
+    submit = SubmitField('Register')
+class ChatRoomsForm(Form):    
+    chatroom = StringField('Room', validators=[Required()])
+    submit = SubmitField('Enter to ChatRoom')
