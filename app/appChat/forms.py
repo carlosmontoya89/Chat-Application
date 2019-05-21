@@ -8,3 +8,7 @@ class LoginForm(Form):
     chatroom = StringField('Room', validators=[Required()])
     #password= PasswordField('PassWord', validators=[Required()])
     submit = SubmitField('Enter Chatroom')
+ class RegisterForm(Form):
+     name = StringField('Name', validators=[Required()])
+     password = PasswordField('PassWord', validators=[Required()])
+     confirmpassword = PasswordField('Confirm PassWord', validators=[Required()])
