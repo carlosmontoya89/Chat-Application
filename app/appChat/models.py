@@ -39,5 +39,13 @@ class Message(db.Model):
         self.created_at =created_at
         self.name_id = name_id
 
+    def save_to_db(self):
+        db.session.add(self)
+        db.session.commit()
+
     class Meta:
         ordering = ['-created_at']
+    
+    @classmethod
+    def find_by_name_id(cls, _name_id):
+        return cls.query.filter_by(name_id=_name_id).all()

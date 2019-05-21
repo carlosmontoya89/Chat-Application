@@ -14,7 +14,10 @@ def login_required(f):
             return redirect(url_for('.login'))
 
     return wrap
-		
+
+def date_of(timestamp):
+    if timestamp is not None:
+        return timestamp.now().strftime('%Y-%m-%d %H:%M:%S')		
 
 def create_app(debug=False):
     """Create an application."""

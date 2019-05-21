@@ -1,7 +1,7 @@
 from flask import session, redirect, url_for, render_template, request, flash
 from . import main
 from .forms import LoginForm, RegisterForm, ChatRoomsForm
-from .models import UserModel
+from .models import UserModel, Message
 from werkzeug.security import safe_str_cmp
 from app import login_required
 
@@ -18,6 +18,8 @@ def login():
         if user and safe_str_cmp(user.password, password):
             session['logged_in'] = True
             session['name'] = name
+            session['id']=user.id
+            print(session['id'])
             return redirect(url_for('.chatroom'))
         else:
             flash( "Invalid credentials, try again.")
@@ -39,6 +41,7 @@ def register():
         user.save_to_db()
         session['logged_in'] = True
         session['name'] = name
+        session['id']=user.id        
         flash("User created successfully.")
         return redirect(url_for('.chatroom'))
     elif request.method == 'GET':
@@ -63,6 +66,16 @@ def chat():
     if name == '' or chatroom == '':
         return redirect(url_for('.login'))
     return render_template('chat.html', name=name, chatroom=chatroom)
+
+@main.route('/messages/')
+@login_required
+def messages():
+    name = session.get('name', '')
+    chatroom = session.get('chatroom', '')   
+    messages=Message.find_by_name_id(session.get('id')) 
+    messages=messages[0:49]   
+    return render_template('messages.html', messages=messages, name=name, chatroom=chatroom)
+
 
 @main.route('/logout/')
 @login_required
