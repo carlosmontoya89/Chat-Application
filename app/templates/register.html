@@ -7,11 +7,9 @@
         <form method="POST">
             {{ form.hidden_tag() }}
             {{ form.name.label }}: {{ form.name() }} {% for error in form.name.errors %}{{ error }}{% endfor %}<br>
-            {{ form.chatroom.label }}: {{ form.chatroom() }} {% for error in form.chatroom.errors %}{{ error }}{% endfor %}<br>
+            {{ form.password.label }}: {{ form.password() }} {% for error in form.password.errors %}{{ error }}{% endfor %}<br>
+            {{ form.confirm.label }}: {{ form.confirm() }} {% for error in form.confirm.errors %}{{ error }}{% endfor %}<br>
             {{ form.submit() }}
         </form>
-        <a href="/register/"><button type="button" class="btn btn-primary" aria-label="Left Align" >
-		  <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Register
-		</button></a>
     </body>
 </html>
