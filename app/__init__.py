@@ -25,7 +25,7 @@ def create_app(debug=False):
     app.debug = debug
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SECRET_KEY'] = 'gjr39dkjn344_!67#'
+    app.config['SECRET_KEY'] = 'og8DGknlZ-AXdHwT5DOiFoFs'
 
     from .appChat import main as main_blueprint
     app.register_blueprint(main_blueprint)
