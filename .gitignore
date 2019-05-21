@@ -52,7 +52,7 @@ coverage.xml
 configs.json
 db.sqlite3
 *.sqlite3
-/data.db
+app/data.db
 data.db
 /*.db
 # Sphinx documentation
