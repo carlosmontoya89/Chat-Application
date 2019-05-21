@@ -1,0 +1,9 @@
+Flask
+Flask-RESTful
+Flask-SQLAlchemy
+Flask-SocketIO
+Flask-WTF
+python-socketio
+python-engineio
+Werkzeug
+WTForms
