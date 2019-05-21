@@ -22,3 +22,15 @@ class UserModel(db.Model):
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
+
+
+class Message(db.Model):
+    __tablename__ = 'messages'
+
+    id = db.Column(db.Integer, primary_key=True)
+    origin = db.relationship('UserModel', lazy='dynamic')
+    content = db.Column(db.Text)
+    created_at = db.Column(db.DateTime)  
+    
+    class Meta:
+        ordering = ['-created_at']
