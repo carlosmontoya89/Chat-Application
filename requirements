@@ -9,3 +9,4 @@ python-socketio
 python-engineio
 Werkzeug
 WTForms
+Flask-Testing
