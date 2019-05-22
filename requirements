@@ -1,8 +1,10 @@
 Flask
-Flask-RESTful
 Flask-SQLAlchemy
 Flask-SocketIO
 Flask-WTF
+Jinja2
+eventlet
+greenlet
 python-socketio
 python-engineio
 Werkzeug
